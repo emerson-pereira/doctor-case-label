@@ -6,8 +6,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: $DB_USER
       MONGO_INITDB_ROOT_PASSWORD: $DB_PASS
+      MONGO_INITDB_DATABASE: $DB_NAME
     restart: always
     ports:
-      - 2717:27017
+      - $DB_PORT:27017
     volumes:
       - ./_data/mongo-doctor-case-label:/data/db
