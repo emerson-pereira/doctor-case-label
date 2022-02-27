@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  mongo-doctor-case-label:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: $DB_USER
+      MONGO_INITDB_ROOT_PASSWORD: $DB_PASS
+    restart: always
+    ports:
+      - 2717:27017
+    volumes:
+      - ./_data/mongo-doctor-case-label:/data/db
