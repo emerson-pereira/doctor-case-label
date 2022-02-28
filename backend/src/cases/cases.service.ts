@@ -3,8 +3,6 @@ import { Injectable } from '@nestjs/common';
 import { Case, CaseDocument } from './schemas/case.schema';
 import { InjectModel } from '@nestjs/mongoose';
 
-console.log(1111, Case.name)
-
 @Injectable()
 export class CasesService {
     constructor(
