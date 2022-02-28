@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
+import { CasesModule } from './cases/cases.module';
 
 const CONFIG_MODULE_OPTIONS = {
   envFilePath: '.development.env',
@@ -34,7 +35,8 @@ const mongooseFactory = (configService: ConfigService) => {
       ],
       useFactory: mongooseFactory,
       inject: [ConfigService]
-    })
+    }),
+    CasesModule
   ],
   controllers: [AppController],
   providers: [AppService],
