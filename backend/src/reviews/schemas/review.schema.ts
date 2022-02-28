@@ -15,7 +15,10 @@ export class Review {
   conditionId: number;
 
   @Prop()
-  timeReviewing: number;
+  startTime: Date;
+
+  @Prop()
+  endTime: Date;
 }
 
 export const ReviewSchema = SchemaFactory.createForClass(Review);
