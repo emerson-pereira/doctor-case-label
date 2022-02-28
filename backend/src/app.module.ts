@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
 import { CasesModule } from './cases/cases.module';
 import { ConditionsModule } from './conditions/conditions.module';
+import { ReviewsModule } from './reviews/reviews.module';
 
 const CONFIG_MODULE_OPTIONS = {
   envFilePath: '.development.env',
@@ -38,7 +39,8 @@ const mongooseFactory = (configService: ConfigService) => {
       inject: [ConfigService]
     }),
     CasesModule,
-    ConditionsModule
+    ConditionsModule,
+    ReviewsModule
   ],
   controllers: [AppController],
   providers: [AppService],
