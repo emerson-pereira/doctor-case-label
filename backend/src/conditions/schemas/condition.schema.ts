@@ -6,7 +6,7 @@ export type ConditionDocument = Condition & Document;
 @Schema()
 export class Condition {
   @Prop()
-  conditionId: number;
+  conditionId: string;
 
   @Prop()
   code: string;

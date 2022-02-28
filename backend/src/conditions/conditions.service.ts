@@ -9,12 +9,14 @@ export class ConditionsService {
         @InjectModel(Condition.name) private conditionModel: Model<ConditionDocument>
     ) {}
     
-    async getConditions() {
-        const query = {};
-        const projection = { _id: 0, __v: 0 };
+    async getConditions(): Promise<Condition[]> | null {
+        const conditions = await this.conditionModel.find().lean().exec();
 
-        const conditions = await this.conditionModel.find(query, projection).exec();
+        if (!conditions) return null;
 
-        return conditions || null;
+        return conditions.map(({ _id, ...condition }) => ({
+            ...condition,
+            conditionId: _id.toString()
+        }));
     }
 }

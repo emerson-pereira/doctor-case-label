@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { ConditionsService } from './conditions.service';
+import { Condition } from './schemas/condition.schema';
 
 @Controller('conditions')
 export class ConditionsController {
@@ -8,7 +9,7 @@ export class ConditionsController {
     ) {}
 
     @Get()
-    getConditions() {
+    getConditions(): Promise<Condition[]> {
         return this.conditionsService.getConditions();
     }
 }
