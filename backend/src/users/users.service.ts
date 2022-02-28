@@ -14,9 +14,9 @@ export class UsersService {
 
   async findOne(email: string): Promise<User | null> {
     const query = { email };
-    const projection = { _id: 0, password: 0 };
+    const projection = { _id: 0 };
 
-    const user = await this.userModel.findOne(query, projection).exec();
+    const user = await this.userModel.findOne(query, projection).lean().exec();
 
     return user || null;
   }
