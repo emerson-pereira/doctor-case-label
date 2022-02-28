@@ -3,6 +3,20 @@ import { Document } from 'mongoose';
 
 export type CaseDocument = Case & Document;
 
+class ReviewDetails {
+  @Prop()
+  userId: number;
+
+  @Prop()
+  conditionId: number;
+
+  @Prop()
+  startTime: Date;
+
+  @Prop()
+  endTime: Date;
+}
+
 @Schema({ timestamps: true })
 export class Case {
   @Prop()
@@ -13,6 +27,9 @@ export class Case {
 
   @Prop()
   isReviewed: boolean;
+
+  @Prop()
+  reviewDetails: ReviewDetails
 }
 
 export const CaseSchema = SchemaFactory.createForClass(Case);

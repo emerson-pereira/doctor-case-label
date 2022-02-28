@@ -23,4 +23,12 @@ export class CasesService {
 
         return nextCase || null;
     }
+
+    async update(id, payload) {
+        const query = { caseId: id };
+
+        const updated = await this.caseModel.findOneAndUpdate(query, { ...payload, isReviewed: true });
+
+        return updated || null;
+    }
 }
