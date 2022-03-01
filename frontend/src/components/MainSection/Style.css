@@ -1,3 +1,28 @@
 .MainSection {
   background-color: lightgray;
+  display: flex;
+  gap: 20px;
+}
+
+.MainSection > * {
+  flex: 1;
+}
+
+.MainSection-Aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.MainSection-Aside > *:first-child {
+  flex: 3;
+}
+
+.MainSection-Aside > *:last-child {
+  flex: 1;
+}
+
+.MainSection-NextButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

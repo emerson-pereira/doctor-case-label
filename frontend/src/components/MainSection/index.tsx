@@ -7,7 +7,12 @@ function MainSection() {
   return (
     <main className="MainSection">
       <Case />
-      <Conditions />
+      <aside className='MainSection-Aside'>
+        <Conditions />
+        <section className='MainSection-NextButton'>
+          <button>Next Case</button>
+        </section>
+      </aside>
     </main>
   );
 }
