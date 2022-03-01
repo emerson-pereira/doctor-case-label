@@ -17,7 +17,7 @@ export class ReviewDetails {
   endTime?: Date;
 }
 
-@Schema({ timestamps: true })
+@Schema()
 export class Case {
   @Prop()
   caseId: string;
