@@ -1,3 +1,7 @@
 .TopBar {
   background-color: darkgray;
 }
+
+.TopBar-Menu {
+  text-align: right;
+}

@@ -4,7 +4,11 @@ import './Style.css';
 function TopBar() {
   return (
     <div className="TopBar">
-      Top Bar
+      <p className='TopBar-Menu'>
+        <span>John Doe</span>
+        <span> | </span>
+        <a href="#">Logout</a>
+      </p>
     </div>
   );
 }
