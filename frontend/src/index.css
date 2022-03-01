@@ -1,6 +1,10 @@
 body {
   margin: 0;
+
   background-color: gray;
+  
+  border: 10px solid black;
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
