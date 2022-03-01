@@ -26,6 +26,9 @@ export class Case {
   content: string;
 
   @Prop()
+  isAssigned: boolean;
+
+  @Prop()
   isReviewed: boolean;
 
   @Prop()

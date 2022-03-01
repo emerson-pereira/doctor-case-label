@@ -1,7 +1,9 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Request, UseGuards } from '@nestjs/common';
+import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard';
 import { CasesService } from './cases.service';
 import { Case, ReviewDetails } from './schemas/case.schema';
 
+@UseGuards(JwtAuthGuard)
 @Controller('cases')
 export class CasesController {
     constructor(
@@ -9,15 +11,20 @@ export class CasesController {
     ) {}
 
     @Get('/next')
-    getNextCase(): Promise<Case> {
-        return this.casesService.getNextCase();
+    getNextCase(@Request() req): Promise<Case> {
+        return this.casesService.getNextCase(req.user);
     }
 
     @Post('/review/:id')
     submitCaseReview(
-        @Param('id') id: string,
-        @Body() reviewDetails: ReviewDetails
+        @Param('id') caseId: string,
+        @Body() reviewDetails: ReviewDetails,
+        @Request() req
     ): Promise<Case> {
-        return this.casesService.submitCaseReview(id, reviewDetails);
+        return this.casesService.submitCaseReview({
+            caseId,
+            conditionId: reviewDetails.conditionId,
+            user: req.user
+        });
     }
 }
