@@ -25,10 +25,10 @@ export class Case {
   @Prop()
   content: string;
 
-  @Prop()
+  @Prop({ default: false })
   isAssigned: boolean;
 
-  @Prop()
+  @Prop({ default: false })
   isReviewed: boolean;
 
   @Prop()
