@@ -14,12 +14,14 @@ export class UsersService {
   }
 
   async findOne(email: string): Promise<User | null> {
-    const { _id, ...user } = await this.userModel.findOne({ email }).lean().exec();
+    const user = await this.userModel.findOne({ email }).lean().exec();
 
     if (!user) return null;
 
+    const { _id, ...rest } = user;
+
     return {
-      ...user,
+      ...rest,
       userId: _id.toString()
     };
   }
