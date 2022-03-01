@@ -3,24 +3,24 @@ import { Document } from 'mongoose';
 
 export type CaseDocument = Case & Document;
 
-class ReviewDetails {
+export class ReviewDetails {
   @Prop()
-  userId: number;
+  userId?: string;
 
   @Prop()
-  conditionId: number;
+  conditionId?: string;
 
   @Prop()
-  startTime: Date;
+  startTime?: Date;
 
   @Prop()
-  endTime: Date;
+  endTime?: Date;
 }
 
 @Schema({ timestamps: true })
 export class Case {
   @Prop()
-  caseId: number;
+  caseId: string;
 
   @Prop()
   content: string;
@@ -29,7 +29,7 @@ export class Case {
   isReviewed: boolean;
 
   @Prop()
-  reviewDetails: ReviewDetails
+  reviewDetails?: ReviewDetails;
 }
 
 export const CaseSchema = SchemaFactory.createForClass(Case);

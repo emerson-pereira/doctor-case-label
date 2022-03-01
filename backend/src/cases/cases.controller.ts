@@ -1,5 +1,6 @@
-import { Body, Controller, Get, Param, Patch } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CasesService } from './cases.service';
+import { Case, ReviewDetails } from './schemas/case.schema';
 
 @Controller('cases')
 export class CasesController {
@@ -8,15 +9,15 @@ export class CasesController {
     ) {}
 
     @Get('/next')
-    getNextCase() {
+    getNextCase(): Promise<Case> {
         return this.casesService.getNextCase();
     }
 
-    @Patch('/:id')
-    update(
-        @Param('id') id,
-        @Body() payload
-    ) {
-        return this.casesService.update(id, payload);
+    @Post('/review/:id')
+    submitCaseReview(
+        @Param('id') id: string,
+        @Body() reviewDetails: ReviewDetails
+    ): Promise<Case> {
+        return this.casesService.submitCaseReview(id, reviewDetails);
     }
 }
