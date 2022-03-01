@@ -3,9 +3,17 @@ import './Style.css';
 
 function Conditions() {
   return (
-    <div className="Conditions">
-      Conditions
-    </div>
+    <section className="Conditions">
+      <h2>Conditions</h2>
+
+      <div className='Conditions-List'>
+        <ul>
+          <li>Condition I</li>
+          <li>Condition II</li>
+          <li>Condition III</li>
+        </ul>
+      </div>
+    </section>
   );
 }
 

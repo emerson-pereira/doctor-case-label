@@ -5,10 +5,10 @@ import './Style.css';
 
 function MainSection() {
   return (
-    <div className="MainSection">
+    <main className="MainSection">
       <Case />
       <Conditions />
-    </div>
+    </main>
   );
 }
 
