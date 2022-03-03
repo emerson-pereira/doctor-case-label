@@ -1,9 +1,10 @@
 import React from 'react';
-import { Routes, Route, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import './App.css';
 import Login from './components/Login';
 import MainSection from './components/MainSection';
 import TopBar from './components/TopBar';
+import StateContext, { state } from './state/state';
 
 interface AuthContextType {
   user: UserOrNull;
@@ -21,28 +22,30 @@ type UserOrNull = User | null;
 
 function App() {
   return (
-    <AuthProvider>
-      <div className="App">
-        <TopBar />
+    <StateContext.Provider value={state}>
+      <AuthProvider>
+        <div className="App">
+          <TopBar />
 
-        <Routes>
-          <Route path="/" element={
-            <RequireAuth>
-              <MainSection />
-            </RequireAuth>
-          } />
-          <Route path="/login" element={<Login />} />
-        </Routes>
-      </div>
-    </AuthProvider>
+          <Routes>
+            <Route path="/" element={
+              <RequireAuth>
+                <MainSection />
+              </RequireAuth>
+            } />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </div>
+      </AuthProvider>
+    </StateContext.Provider>
   );
 }
+
+const AuthContext = React.createContext<AuthContextType>(null!);
 
 export function useAuth() {
   return React.useContext(AuthContext);
 }
-
-const AuthContext = React.createContext<AuthContextType>(null!);
 
 function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = React.useState<UserOrNull>(null);
