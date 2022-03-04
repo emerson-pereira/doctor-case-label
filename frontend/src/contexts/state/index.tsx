@@ -3,7 +3,7 @@ import State, { Case, Condition } from "./interfaces/state.interface";
 
 const StateContext = React.createContext<State>(null!);
 
-export function useState() {
+export function useLocalState() {
   return React.useContext(StateContext);
 }
 
