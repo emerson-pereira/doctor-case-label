@@ -4,15 +4,15 @@ import { useAuth } from '../../contexts/auth';
 import './Style.css';
 
 function TopBar() {
-  let auth = useAuth();
-  let navigate = useNavigate();
+  const auth = useAuth();
+  const navigate = useNavigate();
 
   return (
     <section className="TopBar">
       <nav className='TopBar-Menu'>
-        {!auth.user && <span>Hello, Doctor!</span>}
+        {!auth.user.name && <span>Hello, Doctor!</span>}
 
-        {auth.user && (
+        {auth.user.name && (
           <>
             <span>{auth.user.name}</span>
             <span> | </span>
