@@ -13,7 +13,7 @@ async function getConditions(token: string) {
 }
 
 function Conditions() {
-  const { conditions, updateConditions } = useLocalState();
+  const { conditions, selectedConditionId, updateConditions, updateSelectedConditionId } = useLocalState();
   const { user } = useAuth();
 
   useEffect(() => {
@@ -22,7 +22,11 @@ function Conditions() {
       updateConditions(conditions, () => { });
     }
     populateConditions();
-  });
+  }, []);
+
+  function handleConditionClick(conditionCode: string) {
+    updateSelectedConditionId(conditionCode, () => { })
+  }
 
   return (
     <section className="Conditions">
@@ -31,9 +35,13 @@ function Conditions() {
       <div className='Conditions-List'>
         <ul>
           {conditions.map((condition) => (
-            <li key={condition.code}>{
-              `${condition.description} (${condition.code})`
-            }</li>
+            <li
+              key={condition.code}
+              className={`${condition.code === selectedConditionId ? 'selected' : '' }`}
+              onClick={() => handleConditionClick(condition.code)}
+            >
+              {`${condition.description} (${condition.code})`}
+            </li>
           ))}
         </ul>
       </div>
