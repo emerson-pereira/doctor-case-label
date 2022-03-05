@@ -34,9 +34,9 @@ function Conditions() {
 
       <div className='Conditions-List'>
         <ul>
-          {conditions.map((condition) => (
+          {conditions.map((condition, i) => (
             <li
-              key={condition.code}
+              key={`${condition.code}-${i}`}
               className={`${condition.code === selectedConditionId ? 'selected' : '' }`}
               onClick={() => handleConditionClick(condition.code)}
             >
