@@ -1,11 +1,17 @@
 .TopBar {
-  background-color: lightgray;
-
-  border: 5px solid black;
-  margin: 10px;
-  padding: 10px;
+  border-bottom: 2px solid black;
+  padding: 20px;
 }
 
 .TopBar-Menu {
   text-align: right;
+}
+
+.TopBar-Menu button {
+  padding: 0 5px;
+  background-color: transparent;
+}
+
+.TopBar-Menu button:hover {
+  cursor: pointer;
 }

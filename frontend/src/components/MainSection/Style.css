@@ -1,11 +1,15 @@
 .MainSection {
-  background-color: lightgray;
-  height: 700px;
   display: flex;
   gap: 20px;
+  height: 100%;
+  padding: 20px;
+  flex-direction: row;
+}
 
-  border: 5px solid black;
-  margin: 10px;
+@media only screen and (max-width: 800px) {
+  .MainSection {
+    flex-direction: column;
+  }
 }
 
 .MainSection > * {
@@ -29,4 +33,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 20px;
+}
+
+.MainSection-NextButton button {
+  padding: 20px;
+  background-color: transparent;
+}
+
+.MainSection-NextButton button:hover {
+  cursor: pointer;
 }

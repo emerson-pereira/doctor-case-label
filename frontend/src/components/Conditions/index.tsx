@@ -19,7 +19,7 @@ function Conditions() {
   useEffect(() => {
     async function populateConditions() {
       const conditions = await getConditions(user.token);
-      updateConditions(conditions, () => {});
+      updateConditions(conditions, () => { });
     }
     populateConditions();
   });
@@ -29,12 +29,12 @@ function Conditions() {
       <h2>Conditions</h2>
 
       <div className='Conditions-List'>
-      <ul>
-        {conditions.map((condition) => (
-          <li key={condition.code}>{
-            `${condition.description} (${condition.code})`
-          }</li>
-        ))}
+        <ul>
+          {conditions.map((condition) => (
+            <li key={condition.code}>{
+              `${condition.description} (${condition.code})`
+            }</li>
+          ))}
         </ul>
       </div>
     </section>

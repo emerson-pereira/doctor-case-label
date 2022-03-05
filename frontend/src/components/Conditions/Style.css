@@ -1,12 +1,34 @@
 .Conditions {
-  border: 5px solid black;
-
-  margin: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 .Conditions-List {
-  border: 3px solid black;
+  border: 2px solid black;
+  padding: 20px 0;
   height: 500px;
   overflow-y: scroll;
+}
+
+@media only screen and (max-width: 800px) {
+  .Conditions-List {
+    height: calc(100vh - 700px);
+  }
+}
+
+
+.Conditions-List ul {
+  list-style: none;
+  padding: 0 20px;
+}
+
+.Conditions-List ul li {
+  padding: 5px 0;
+}
+
+.Conditions-List ul li.selected {
+  background-color: lightgray;
+}
+
+.Conditions-List ul li:hover {
+  cursor: pointer;
 }

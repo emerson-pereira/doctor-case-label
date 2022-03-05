@@ -1,3 +1,16 @@
 .Login {
   padding: 10px;
 }
+
+.Login input {
+  padding: 5px;
+}
+
+.Login button {
+  padding: 10px;
+  background-color: transparent;
+}
+
+.Login button:hover {
+  cursor: pointer;
+}
