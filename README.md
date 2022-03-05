@@ -16,7 +16,13 @@ cd ./frontend
 npm i
 ```
 
-### 3. Run App
+### 3. Setup env vars
+
+```
+cp ./.env.development ./.env.development.local
+```
+
+### 4. Run App
 
 ```
 npm start
@@ -36,7 +42,13 @@ cd ./backend
 npm i
 ```
 
-### 3. Run Mongo DB via docker
+### 3. Setup env vars
+
+```
+cp ./.env.development ./.env.development.local
+```
+
+### 4. Run Mongo DB via docker
 
 ```
 npm run docker:up
@@ -48,13 +60,13 @@ npm run docker:up
 > npm run docker:down
 > ```
 
-### 4. Populate DB with mock data
+### 5. Populate DB with mock data
 
 ```
 npm run db:populate
 ```
 
-### 5. Run app
+### 6. Run app
 
 ```
 npm run start:dev
