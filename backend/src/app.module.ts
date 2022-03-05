@@ -8,7 +8,7 @@ import { CasesModule } from './cases/cases.module';
 import { ConditionsModule } from './conditions/conditions.module';
 
 const CONFIG_MODULE_OPTIONS = {
-  envFilePath: '.development.env',
+  envFilePath: '.env.development',
 };
 
 const mongooseFactory = (configService: ConfigService) => {

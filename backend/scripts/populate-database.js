@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-require('dotenv').config({ path: '.development.env' })
+require('dotenv').config({ path: '.env.development' })
 
 const cases = require('../mock-data/cases.json');
 const conditions = require('../mock-data/conditions.json');

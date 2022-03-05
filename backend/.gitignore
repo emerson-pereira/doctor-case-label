@@ -35,7 +35,7 @@ lerna-debug.log*
 !.vscode/extensions.json
 
 # ENV
-.development.env
+.env.development.local
 
 # Docker
 _data
