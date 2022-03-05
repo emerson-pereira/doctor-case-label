@@ -4,7 +4,7 @@ import { useLocalState } from '../../contexts/state';
 import './Style.css';
 
 export async function getNextCase(token: string) {
-  const nextCase = await fetch('http://localhost:4000/cases/next', {
+  const nextCase = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cases/next`, {
     headers: {
       Authorization: `Bearer ${token}`
     }

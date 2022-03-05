@@ -4,7 +4,7 @@ import { useLocalState } from '../../contexts/state';
 import './Style.css';
 
 async function getConditions(token: string) {
-  const conditions = await fetch('http://localhost:4000/conditions', {
+  const conditions = await fetch(`${process.env.REACT_APP_BACKEND_URL}/conditions`, {
     headers: {
       Authorization: `Bearer ${token}`
     }

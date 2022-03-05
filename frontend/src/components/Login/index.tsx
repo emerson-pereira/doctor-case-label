@@ -3,6 +3,22 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../contexts/auth';
 import './Style.css';
 
+interface Credentials {
+  email: string;
+  password: string;
+}
+
+async function requestLogin(credentials: Credentials) {
+  const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(credentials)
+  })
+  return response.json();
+}
+
 function Login() {
   let navigate = useNavigate();
   let location: any = useLocation();
@@ -50,17 +66,6 @@ function Login() {
       </form>
     </section>
   );
-}
-
-async function requestLogin(credentials: any) {
-  const response = await fetch('http://localhost:4000/auth/login', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(credentials)
-  })
-  return response.json();
 }
 
 export default Login;
