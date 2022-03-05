@@ -13,9 +13,7 @@ async function run() {
   const port = process.env.DB_PORT;
   const dbName = process.env.DB_NAME;
 
-  const conn = mongoose.createConnection(`mongodb://${user}:${pass}@${host}:${port}`, {
-    dbName: dbName
-  });
+  const conn = mongoose.createConnection(`mongodb://${user}:${pass}@${host}:${port}`, { dbName });
 
   const dummySchema = new Schema({}, { strict: false });
 
