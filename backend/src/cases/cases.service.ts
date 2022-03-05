@@ -14,8 +14,19 @@ export class CasesService {
     return newCase.save();
   }
 
-  async findOldestAvailableCase(): Promise<Case> | null {
-    const query = { isReviewed: false, isAssigned: false };
+  async findOldestAvailableCase(userId: string): Promise<Case> | null {
+    const query = {
+      isReviewed: false,
+      $or: [
+        {
+          isAssigned: true,
+          'reviewDetais.userId': userId
+        },
+        {
+          isAssigned: false
+        }
+      ] 
+    };
     const sort = { createdAt: 1 };
 
     const oldestCase = await this.caseModel
@@ -34,7 +45,7 @@ export class CasesService {
   }
 
   async getNextCase(user: User): Promise<Case> | null {
-    const nextCase: Case = await this.findOldestAvailableCase();
+    const nextCase: Case = await this.findOldestAvailableCase(user.userId);
 
     if (!nextCase) return null;
 
