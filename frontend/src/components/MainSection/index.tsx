@@ -50,7 +50,8 @@ function MainSection() {
       return;
     }
 
-    updateCase({ caseId: nextCase._id, content: nextCase.content }, () => { });
+    updateCase({ caseId: nextCase._id, content: nextCase.content });
+    updateSelectedConditionId('');
   }
 
   return (
