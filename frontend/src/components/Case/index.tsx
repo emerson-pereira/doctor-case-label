@@ -28,7 +28,7 @@ function Case() {
         return;
       }
 
-      updateCase({ caseId: nextCase._id, content: nextCase.content }, () => { });
+      updateCase({ caseId: nextCase._id, content: nextCase.content });
     }
     populateConditions();
   }, []);

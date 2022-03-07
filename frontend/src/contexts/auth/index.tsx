@@ -17,14 +17,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const [user, setUser] = React.useState<User>(initialUser);
 
-  const signin = (newUser: User, callback: VoidFunction) => {
+  const signin = (newUser: User, callback?: VoidFunction) => {
     setUser(newUser);
-    callback();
+    callback && callback();
   };
 
-  const signout = (callback: VoidFunction) => {
+  const signout = (callback?: VoidFunction) => {
     setUser(initialUser);
-    callback();
+    callback && callback();
   };
 
   const value = { user, signin, signout };

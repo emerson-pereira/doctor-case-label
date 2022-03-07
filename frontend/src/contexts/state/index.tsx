@@ -17,19 +17,19 @@ export function StateProvider({ children }: { children: React.ReactNode }) {
   const [conditions, setConditions] = React.useState<Condition[]>([]);
   const [selectedConditionId, setSelectedConditionId] = React.useState<string>('');
 
-  const updateCase = (newCase: Case, callback: VoidFunction) => {
+  const updateCase = (newCase: Case, callback?: VoidFunction) => {
     setCase(newCase);
-    callback();
+    callback && callback();
   };
 
-  const updateConditions = (newConditions: Condition[], callback: VoidFunction) => {
+  const updateConditions = (newConditions: Condition[], callback?: VoidFunction) => {
     setConditions(newConditions);
-    callback();
+    callback && callback();
   };
 
-  const updateSelectedConditionId = (newConditionId: string, callback: VoidFunction) => {
+  const updateSelectedConditionId = (newConditionId: string, callback?: VoidFunction) => {
     setSelectedConditionId(newConditionId);
-    callback();
+    callback && callback();
   };
 
   const value: State = {

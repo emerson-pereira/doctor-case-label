@@ -18,7 +18,13 @@ async function submitCurrentCase(caseId: string, conditionId: string, token: str
 }
 
 function MainSection() {
-  const { case: currentCase, selectedConditionId, updateCase } = useLocalState();
+  const {
+    case: currentCase,
+    selectedConditionId,
+    updateCase,
+    updateSelectedConditionId
+  } = useLocalState();
+
   const { user } = useAuth();
 
   async function handleNextCase() {

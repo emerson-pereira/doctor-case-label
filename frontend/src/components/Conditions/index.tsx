@@ -13,19 +13,25 @@ async function getConditions(token: string) {
 }
 
 function Conditions() {
-  const { conditions, selectedConditionId, updateConditions, updateSelectedConditionId } = useLocalState();
+  const {
+    conditions,
+    selectedConditionId,
+    updateConditions,
+    updateSelectedConditionId
+  } = useLocalState();
+
   const { user } = useAuth();
 
   useEffect(() => {
     async function populateConditions() {
       const conditions = await getConditions(user.token);
-      updateConditions(conditions, () => { });
+      updateConditions(conditions);
     }
     populateConditions();
   }, []);
 
   function handleConditionClick(conditionCode: string) {
-    updateSelectedConditionId(conditionCode, () => { })
+    updateSelectedConditionId(conditionCode);
   }
 
   return (
