@@ -2,6 +2,15 @@
 
 Medical cases reviewer for doctors. Assign an ICD-10 condition for EHR cases.
 
+### Instructions
+
+- Run frontend and backend as described in the steps below
+
+### Requirements
+- node
+- docker
+- docker-compose
+
 ## Frontend
 
 ### 1. Go to folder
