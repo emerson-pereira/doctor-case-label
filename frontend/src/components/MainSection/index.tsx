@@ -6,7 +6,7 @@ import Conditions from '../Conditions';
 import './Style.css';
 
 async function submitCurrentCase(caseId: string, conditionId: string, token: string) {
-  const caseResult = await fetch(`http://localhost:4000/cases/review/${caseId}`, {
+  const caseResult = await fetch(`${process.env.REACT_APP_BACKEND_URL}/cases/review/${caseId}`, {
     method: 'POST',
     headers: {
       Authorization: `Bearer ${token}`,
